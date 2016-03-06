@@ -1,11 +1,12 @@
 <div class="container">
-  <h2>THE ARTICLE YOU REQUESTED</h2></br>
+  <h2>HERE IS YOUR ARTICLE</h2></br>
   
   <p> Title: <%= @article.title %></p>
-  <p> Description: <%= @article.description %></p>
+  <p> Description: <%= @article.description %></p></br>
   
-  <ul>
-    <li><%= link_to "Edit This Article", edit_article_path(@article) %></li>
-    <li><%= link_to "Return to Articles Index", articles_path %></li>
-  </ul>
+  
 </div>
+<ul style="list-style-type:none; border-top: 1px solid #999999; padding-top: 15px; padding-left: 50px">
+  <li style="display: inline"><%= link_to "Edit This Article", edit_article_path(@article), class: "btn btn-primary btn-lg" %></li>
+  <li style="display: inline"><%= link_to "Return to Articles Index", articles_path, class: "btn btn-primary btn-lg" %></li>
+</ul>
