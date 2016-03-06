@@ -31,14 +31,20 @@ $navbar-default-bg: #ffffff;
 }
 
 footer {
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
   margin-bottom: 5px;
   padding-bottom: 0px;
-  border-top: solid 1px #777777;
+  padding-left: 10px;
+  border-top: dotted 1px #999999;
+  
 }
 
 footer ul {
-  
+  bottom: 2px;
   float: right;
+  padding-right: 10px;
   list-style: none;
   
 }

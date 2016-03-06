@@ -1,24 +1,26 @@
-<h1>_-_ MY LORD, I HAVE HERE YOUR LIST OF ARTICLES _-_</h1>
-
-<p>
-  <%= link_to "I WANT TO CREATE A NEW ARTICLE", new_article_path %> 
-</p>
-
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-  </tr>
+<div class="container">
+  <h1>CURRENT LIST OF ARTICLES</h1></br>
   
-  <% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.description %></td>
-    <td><%= link_to 'EDIT', edit_article_path(article) %></td>
-    <td><%= link_to 'SHOW', article_path(article) %></td>
-    <td><%= link_to "INCINERATE", article_path(article), method: :delete, data: {confirm: "Are You Sure?"} %></td>
+  <p>
+    <%= link_to "I WANT TO CREATE A NEW ARTICLE", new_article_path %> 
+  </p>
+  
+  
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
     
-  </tr>
-  <% end %>
-</table>
+    <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.description %></td>
+      <td><%= link_to 'EDIT', edit_article_path(article) %></td>
+      <td><%= link_to 'SHOW', article_path(article) %></td>
+      <td><%= link_to "INCINERATE", article_path(article), method: :delete, data: {confirm: "Are You Sure?"} %></td>
+      
+    </tr>
+    <% end %>
+  </table>
+</div>
