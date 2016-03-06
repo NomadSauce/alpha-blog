@@ -30,12 +30,12 @@ $navbar-default-bg: #ffffff;
 
 footer {
   bottom: 0px;
-  position: absolute;
+  position: fixed;
   width: 100%;
   margin-bottom: 5px;
   padding-bottom: 0px;
   padding-left: 10px;
-  border-top: dotted 1px #999999;
+  border-top: dotted 1px #a6a6a6;
   
 }
 
@@ -59,6 +59,23 @@ footer ul li {
 }
 
 .article-actions {
-  border-top: 1px solid #999999;
+  border-top: 1px solid #a6a6a6;
   padding-top: 20px
+}
+
+.description {
+  margin: 0px;
+}
+
+.article-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  
+}
+
+.article-body {
+  border-top: 1px, solid, #a6a6a6;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  
 }

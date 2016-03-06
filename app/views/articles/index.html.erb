@@ -1,26 +1,26 @@
 <div class="container">
-  <h1>CURRENT LIST OF ARTICLES</h1></br>
-  
-  <p>
-    <%= link_to "CREATE A NEW ARTICLE", new_article_path, class: "btn btn-primary btn-lg" %> 
-  </p>
+  <h1 align="center">CURRENT LIST OF ARTICLES</h1></br>
   
   
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-    </tr>
-    
-    <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.description %></td>
-      <td><%= link_to 'EDIT', edit_article_path(article) %></td>
-      <td><%= link_to 'SHOW', article_path(article) %></td>
-      <td><%= link_to "INCINERATE", article_path(article), method: :delete, data: {confirm: "Are You Sure?"} %></td>
-      
-    </tr>
-    <% end %>
-  </table>
-</div>
+  <% @articles.each do |article| %>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="well well-lg">
+          <div class="article-title">
+            <%= link_to article.title, article_path(article) %>
+          </div>
+          <div class="article-body">
+            <%= truncate(article.description, length: 75) %>
+          </div>
+            <div class="article-actions">
+              <div class="col-sm-offset-1">
+                <%= link_to "Edit This Article", edit_article_path(article), class: "btn btn-primary btn-xs" %>
+                <%= link_to "Return to Articles Index", articles_path, class: "btn btn-success btn-xs" %>
+                <%= link_to "DESTROY ARTICLE", article_path(article), method: :delete, data: {confirm: "Are you sure you want to annihilate this article?"}, class: "btn btn-danger btn-xs" %>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+ </div>
