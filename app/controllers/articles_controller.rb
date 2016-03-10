@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+ class ArticlesController < ApplicationController
   
   before_action :set_article, only: [:edit, :update, :show, :destroy] 
   
@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
   def create
 
     @article = Article.new(article_params)
-    
+    @article.user = User.first
     if @article.save
       #Do Something!
       flash[:success] = "YOUR ARTICLE WAS SAVED"
