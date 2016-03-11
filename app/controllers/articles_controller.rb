@@ -1,6 +1,9 @@
  class ArticlesController < ApplicationController
   
-  before_action :set_article, only: [:edit, :update, :show, :destroy] 
+  before_action :set_article, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+  
   
   
   def index
@@ -20,7 +23,8 @@
   def create
 
     @article = Article.new(article_params)
-    @article.user = User.first
+    # Assign the user who is logged in
+    @article.user = current_user
     if @article.save
       #Do Something!
       flash[:success] = "YOUR ARTICLE WAS SAVED"
@@ -64,6 +68,10 @@
       params.require(:article).permit(:title, :description)
     end
     
-  
-  
+    def require_same_user
+      if current_user != @article.user
+        flash[:danger] = "You can only do this action if you are the author"
+        redirect_to root_path
+      end
+    end
 end
